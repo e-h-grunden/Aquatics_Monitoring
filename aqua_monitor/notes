@@ -1,0 +1,12 @@
+Notes
+
+- sensor array to monitor system inputs/outputs
+    -   Water Temp (corded probe)
+    -   Air Temp/Humidity Sensor  
+    -   Water Ph probe
+    -   Water TDS (quality)
+    -   light intensity (multiple?) 
+- print scrolling values to LCD/eink
+- LEDs for warnings to various values
+-   
+

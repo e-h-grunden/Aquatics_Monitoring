@@ -2,11 +2,9 @@
 #define __TEMPERATURE_H
 
 //water TEMP
-#define ONE_WIRE_BUS 
-#define ONE_WIRE_PWR
-#define ONE_WIRE_GND 
+#define WATER_TEMP_PIN 2
 
 void water_temperature_init();
 void water_temperature_check();
-
+void water_temp_pull();
 #endif //__TEMPERATURE_H

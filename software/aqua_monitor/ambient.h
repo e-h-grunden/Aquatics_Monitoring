@@ -1,7 +1,7 @@
 #ifndef __AMBIENT_H
 #define __AMBIENT_H
 
-#define DHTPIN          //pin used for sensor
+#define DHTPIN  4        //pin used for sensor
 #define DHTTYPE DHT22   //DHT 22  (AM2302), AM2321
 
 // Connect pin 1 (on the left) of the sensor to +5V

@@ -7,8 +7,8 @@
 DHT dht(DHTPIN, DHTTYPE);
 
 void ambient_init() {
-    Serial3.begin(9600);
-    Serial3.println(F("DHT22 test"));
+    Serial.begin(9600);
+    Serial.println(F("DHT22 test"));
     dht.begin();
 }
 
@@ -21,7 +21,7 @@ void ambient_check() {
     float t = dht.readTemperature();
 
     if (isnan(h) || isnan(t)) {
-        Serial3.println(F("Failed to read from DHT sensor!"));
+        Serial.println(F("Failed to read from DHT sensor!"));
         return;
     }
     
@@ -29,12 +29,12 @@ void ambient_check() {
     // Compute heat index in Celsius (isFahreheit = false)
     float hic = dht.computeHeatIndex(t, h, false);
 
-    Serial3.print(F("Humidity: "));
-    Serial3.print(h);
-    Serial3.print(F("%  Temperature: "));
-    Serial3.print(t);
-    Serial3.print(F("°C "));
-    Serial3.print(F("Heat index: "));
-    Serial3.print(hic);
-    Serial3.print(F("°C "));
+    Serial.print(F("Humidity: "));
+    Serial.print(h);
+    Serial.print(F("%  Temperature: "));
+    Serial.print(t);
+    Serial.println(F("°C "));
+    Serial.print(F("Heat index: "));
+    Serial.print(hic);
+    Serial.println(F("°C "));
 }

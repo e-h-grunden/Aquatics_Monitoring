@@ -41,3 +41,38 @@ void Breath_LED_G(int color){
     }    
 }
 
+void LED_interface(){
+    
+    //allow flow through common LED pin
+    pinMode(LED_PIN_COMMON, OUTPUT);
+    //pull status check for boolean values on alarms
+
+    check_temp_for_alarm();
+    check_ph_for_alarm();
+
+    //statement for temperature to alert 
+    if((AlarmTempPass = true) && (AlarmPhPass = false)){
+        //if high alarms = led is red with pulses   
+        Breath_LED_R();
+        delay(500);
+        }
+    
+    //statement for temperature to alert
+    else if((AlarmPhPass = true) && (AlarmTempPass = false)){
+        //if high alarms = led is red with pulses   
+        Breath_LED_R();
+        delay(50);
+        }
+
+    else if((AlarmPhPass = true) && (AlarmTempPass = true)){
+        //if high alarms = led is red with pulses   
+        Breath_LED_R();
+        delay(10);
+        }
+        
+    //if no high alarms = led is green
+    else{
+        Breath_LED_G();      
+    }
+}
+

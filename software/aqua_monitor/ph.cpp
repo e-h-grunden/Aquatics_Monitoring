@@ -35,7 +35,7 @@ float readTemperature() {
     water_temp_pull();
 }
 
-bool check_ph_for_alarm(){
+void check_ph_for_alarm(){
     if((phValue <= 6.8) || (phValue >= 8.2)){
         Serial.print("PH ALARM: ");
         Serial.println(phValue);

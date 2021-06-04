@@ -43,7 +43,7 @@ float water_temp_pull() {
     sensors.getTempCByIndex(0);
 }
 
-bool check_temp_for_alarm() {
+void check_temp_for_alarm() {
     sensors.requestTemperatures();
     float tempC = sensors.getTempC(waterThermometer);
     if (sensors.hasAlarm(waterThermometer))
@@ -53,8 +53,8 @@ bool check_temp_for_alarm() {
     //digitalWrite(TEMP_RELAY_PIN, HIGH);
     AlarmTempPass = true;
     }
-    else {
+    //else {
     //digitalWrite(TEMP_RELAY_PIN, LOW);
-    AlarmTempPass = false;
-    }
+    //AlarmTempPass = false;
+    //}
 }

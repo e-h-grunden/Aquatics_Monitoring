@@ -3,10 +3,10 @@
 
 #define PIN_PH A1 //ph probe is an analog value
 
-bool AlarmPhPass;
+bool AlarmPhPass = false;
 
 void ph_init();
 void ph_check();
 float readTemperature();
-bool check_ph_for_alarm();
+void check_ph_for_alarm();
 #endif 

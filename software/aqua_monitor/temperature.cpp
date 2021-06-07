@@ -34,7 +34,6 @@ void water_temperature_check() {
     Serial.print(sensors.getTempCByIndex(0));
     Serial.print((char)176);//shows degrees character
     Serial.println("C");
-    check_temp_for_alarm();
 }
 
 //function to internally share temperature
@@ -43,7 +42,7 @@ float water_temp_pull() {
     sensors.getTempCByIndex(0);
 }
 
-void check_temp_for_alarm() {
+bool check_temp_for_alarm() {
     sensors.requestTemperatures();
     float tempC = sensors.getTempC(waterThermometer);
     if (sensors.hasAlarm(waterThermometer))
@@ -51,10 +50,11 @@ void check_temp_for_alarm() {
     Serial.print("TEMP ALARM: ");
     Serial.println(tempC);
     //digitalWrite(TEMP_RELAY_PIN, HIGH);
-    AlarmTempPass = true;
+    return true;
     }
-    //else {
+    else {
+        return false;
     //digitalWrite(TEMP_RELAY_PIN, LOW);
     //AlarmTempPass = false;
-    //}
+    }
 }

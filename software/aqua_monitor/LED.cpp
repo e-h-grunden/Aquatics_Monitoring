@@ -47,32 +47,31 @@ void LED_interface(){
     pinMode(LED_PIN_COMMON, OUTPUT);
     //pull status check for boolean values on alarms
 
-    check_temp_for_alarm();
-    check_ph_for_alarm();
-
     //statement for temperature to alert 
-    if((AlarmTempPass = true) && (AlarmPhPass = false)){
+    if(check_temp_for_alarm() == true){
         //if high alarms = led is red with pulses   
-        Breath_LED_R();
+        Breath_LED_R(red);
         delay(500);
         }
     
     //statement for temperature to alert
-    else if((AlarmPhPass = true) && (AlarmTempPass = false)){
+    else if(check_ph_for_alarm() == true){
         //if high alarms = led is red with pulses   
-        Breath_LED_R();
+        Breath_LED_R(red);
         delay(50);
         }
 
-    else if((AlarmPhPass = true) && (AlarmTempPass = true)){
+    else if((check_temp_for_alarm() == true) & (check_ph_for_alarm() == true)){
         //if high alarms = led is red with pulses   
-        Breath_LED_R();
-        delay(10);
+        Breath_LED_R(red);
+        delay(5);
         }
         
     //if no high alarms = led is green
     else{
-        Breath_LED_G();      
+        Breath_LED_G(green);      
     }
+    
+    return 0;
 }
 

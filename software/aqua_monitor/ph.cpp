@@ -27,7 +27,6 @@ void ph_check() {
         Serial.println(phValue);
     }
     ph.calibration(voltage,temperature);           // calibration process by Serail CMD
-    check_temp_for_alarm();
 }
 
 float readTemperature() {
@@ -35,10 +34,13 @@ float readTemperature() {
     water_temp_pull();
 }
 
-void check_ph_for_alarm(){
+bool check_ph_for_alarm(){
     if((phValue <= 6.8) || (phValue >= 8.2)){
         Serial.print("PH ALARM: ");
         Serial.println(phValue);
-        AlarmPhPass = true; 
+        return true; 
+    }
+    else{
+        return false;
     }
 }
